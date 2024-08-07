@@ -609,7 +609,7 @@
 	<key>00-01-30</key>
 	<string>Extreme Networks</string>
 	<key>00-01-31</key>
-	<string>Bosch Security Systems, Inc.</string>
+	<string>Bosch Security Systems, Inc. (Camera)</string>
 	<key>00-01-32</key>
 	<string>Dranetz - BMI</string>
 	<key>00-01-33</key>
@@ -659,7 +659,7 @@
 	<key>00-01-49</key>
 	<string>T.D.T. Transfer Data Test GmbH</string>
 	<key>00-01-4A</key>
-	<string>Sony Corporation</string>
+	<string>Sony Corporation. (Camera)</string>
 	<key>00-01-4B</key>
 	<string>Ennovate Networks, Inc.</string>
 	<key>00-01-4C</key>
@@ -1437,7 +1437,7 @@
 	<key>00-02-D0</key>
 	<string>Comdial Corporation</string>
 	<key>00-02-D1</key>
-	<string>Vivotek, Inc.</string>
+	<string>Vivotek, Inc.(Camera)</string>
 	<key>00-02-D2</key>
 	<string>Workstation AG</string>
 	<key>00-02-D3</key>
@@ -1925,7 +1925,7 @@
 	<key>00-03-C4</key>
 	<string>Tomra Systems ASA</string>
 	<key>00-03-C5</key>
-	<string>Mobotix AG</string>
+	<string>Mobotix AG (Camera)</string>
 	<key>00-03-C6</key>
 	<string>ICUE Systems, Inc.</string>
 	<key>00-03-C7</key>
@@ -2239,7 +2239,7 @@
 	<key>00-04-62</key>
 	<string>DAKOS Data </string>
 	<key>00-04-63</key>
-	<string>Bosch Security Systems</string>
+	<string>Bosch Security Systems (Camera)</string>
 	<key>00-04-64</key>
 	<string>Pulse-Link Inc</string>
 	<key>00-04-65</key>
@@ -2287,7 +2287,7 @@
 	<key>00-04-7C</key>
 	<string>Skidata AG</string>
 	<key>00-04-7D</key>
-	<string>Pelco</string>
+	<string>Pelco (Camera)</string>
 	<key>00-04-7E</key>
 	<string>Siqura B.V.</string>
 	<key>00-04-7F</key>
@@ -5065,7 +5065,7 @@
 	<key>00-0A-12</key>
 	<string>Azylex Technology, Inc</string>
 	<key>00-0A-13</key>
-	<string>Honeywell Video Systems</string>
+	<string>Honeywell Video Systems (Camera)</string>
 	<key>00-0A-14</key>
 	<string>TECO a.s.</string>
 	<key>00-0A-15</key>
@@ -8123,7 +8123,7 @@
 	<key>00-10-16</key>
 	<string>T.SQWARE</string>
 	<key>00-10-17</key>
-	<string>Bosch Access Systems GmbH</string>
+	<string>Bosch Access Systems GmbH (Camera)</string>
 	<key>00-10-18</key>
 	<string>Broadcom</string>
 	<key>00-10-19</key>
@@ -8453,7 +8453,7 @@
 	<key>00-10-BD</key>
 	<string>THE TELECOMMUNICATION TECHNOLOGY COMMITTEE </string>
 	<key>00-10-BE</key>
-	<string>MARCH NETWORKS CORPORATION</string>
+	<string>MARCH NETWORKS CORPORATION (Camera)</string>
 	<key>00-10-BF</key>
 	<string>InterAir Wireless</string>
 	<key>00-10-C0</key>
@@ -9345,7 +9345,7 @@
 	<key>00-12-80</key>
 	<string>Cisco Systems, Inc</string>
 	<key>00-12-81</key>
-	<string>March Networks S.p.A.</string>
+	<string>March Networks S.p.A. (Camera)</string>
 	<key>00-12-82</key>
 	<string>Qovia</string>
 	<key>00-12-83</key>
@@ -9931,7 +9931,7 @@
 	<key>00-13-A8</key>
 	<string>Tanisys Technology</string>
 	<key>00-13-A9</key>
-	<string>Sony Corporation</string>
+	<string>Sony Corporation. (Camera)</string>
 	<key>00-13-AA</key>
 	<string>ALS  </string>
 	<key>00-13-AB</key>
@@ -10043,7 +10043,9 @@
 	<key>00-13-E1</key>
 	<string>Iprobe AB</string>
 	<key>00-13-E2</key>
-	<string>GeoVision Inc.</string>
+	<string>GeoVision Inc. (Camera)</string>
+	<key>E4-30-22</key>
+	<string>Hanwha /Samsung Techwin (Camera)</string>
 	<key>00-13-E3</key>
 	<string>CoVi Technologies, Inc.</string>
 	<key>00-13-E4</key>
@@ -12391,7 +12393,7 @@
 	<key>00-18-84</key>
 	<string>Fon Technology S.L.</string>
 	<key>00-18-85</key>
-	<string>Avigilon Corporation</string>
+	<string>Avigilon Camera</string>
 	<key>00-18-86</key>
 	<string>EL-TECH, INC.</string>
 	<key>00-18-87</key>
@@ -13157,7 +13159,7 @@
 	<key>00-1A-06</key>
 	<string>OpVista, Inc.</string>
 	<key>00-1A-07</key>
-	<string>Arecont Vision</string>
+	<string>Arecont Vision (Camera)</string>
 	<key>00-1A-08</key>
 	<string>Simoco Ltd.</string>
 	<key>00-1A-09</key>
@@ -13399,7 +13401,7 @@
 	<key>00-1A-7F</key>
 	<string>GCI Science </string>
 	<key>00-1A-80</key>
-	<string>Sony Corporation</string>
+	<string>Sony Corporation. (Camera)</string>
 	<key>00-1A-81</key>
 	<string>Zelax</string>
 	<key>00-1A-82</key>
@@ -13915,7 +13917,7 @@
 	<key>00-1B-85</key>
 	<string>MAN Diesel SE</string>
 	<key>00-1B-86</key>
-	<string>Bosch Access Systems GmbH</string>
+	<string>Bosch Access Systems GmbH (Camera)</string>
 	<key>00-1B-87</key>
 	<string>Deepsound Tech. Co., Ltd</string>
 	<key>00-1B-88</key>
@@ -14075,7 +14077,7 @@
 	<key>00-1B-D7</key>
 	<string>Cisco SPVTG</string>
 	<key>00-1B-D8</key>
-	<string>DVTel LTD</string>
+	<string>Teledyne FLIR LLC (Camera)</string>
 	<key>00-1B-D9</key>
 	<string>Edgewater Computer Systems</string>
 	<key>00-1B-DA</key>
@@ -14231,7 +14233,7 @@
 	<key>00-1C-26</key>
 	<string>Hon Hai Precision Ind. Co.,Ltd.</string>
 	<key>00-1C-27</key>
-	<string>Sunell Electronics Co.</string>
+	<string>Sunell Electronics Co. (Camera)</string>
 	<key>00-1C-28</key>
 	<string>Sphairon Technologies GmbH </string>
 	<key>00-1C-29</key>
@@ -14289,7 +14291,7 @@
 	<key>00-1C-43</key>
 	<string>Samsung Electronics Co.,Ltd</string>
 	<key>00-1C-44</key>
-	<string>Bosch Security Systems BV</string>
+	<string>Bosch Security Systems BV (Camera)</string>
 	<key>00-1C-45</key>
 	<string>Chenbro Micom Co., Ltd.</string>
 	<key>00-1C-46</key>
@@ -15031,7 +15033,7 @@
 	<key>00-1D-B9</key>
 	<string>Wellspring Wireless</string>
 	<key>00-1D-BA</key>
-	<string>Sony Corporation</string>
+	<string>Sony Corporation. (Camera)</string>
 	<key>00-1D-BB</key>
 	<string>Dynamic System Electronics Corp.</string>
 	<key>00-1D-BC</key>
@@ -18585,7 +18587,7 @@
 	<key>00-24-BD</key>
 	<string>Hainzl Industriesysteme GmbH</string>
 	<key>00-24-BE</key>
-	<string>Sony Corporation</string>
+	<string>Sony Corporation. (Camera)</string>
 	<key>00-24-BF</key>
 	<string>CIAT</string>
 	<key>00-24-C0</key>
@@ -20623,7 +20625,7 @@
 	<key>00-40-7E</key>
 	<string>EVERGREEN SYSTEMS, INC.</string>
 	<key>00-40-7F</key>
-	<string>FLIR Systems</string>
+	<string>FLIR Systems (Camera)</string>
 	<key>00-40-80</key>
 	<string>ATHENIX CORPORATION</string>
 	<key>00-40-81</key>
@@ -20649,7 +20651,7 @@
 	<key>00-40-8B</key>
 	<string>RAYLAN CORPORATION</string>
 	<key>00-40-8C</key>
-	<string>AXIS COMMUNICATIONS AB</string>
+	<string>AXIS COMMUNICATIONS AB (Camera)</string>
 	<key>00-40-8D</key>
 	<string>THE GOODYEAR TIRE </string>
 	<key>00-40-8E</key>
@@ -25505,7 +25507,7 @@
 	<key>04-5C-8E</key>
 	<string>gosund GROUP CO.,LTD</string>
 	<key>04-5D-4B</key>
-	<string>Sony Corporation</string>
+	<string>Sony Corporation. (Camera)</string>
 	<key>04-5D-56</key>
 	<string>camtron industrial inc.</string>
 	<key>04-5F-A7</key>
@@ -25843,7 +25845,7 @@
 	<key>08-00-45</key>
 	<string>CONCURRENT COMPUTER CORP.</string>
 	<key>08-00-46</key>
-	<string>Sony Corporation</string>
+	<string>Sony Corporation. (Camera)</string>
 	<key>08-00-47</key>
 	<string>SEQUENT COMPUTER SYSTEMS INC.</string>
 	<key>08-00-48</key>
@@ -26717,7 +26719,7 @@
 	<key>10-4E-07</key>
 	<string>Shanghai Genvision Industries Co.,Ltd</string>
 	<key>10-4F-A8</key>
-	<string>Sony Corporation</string>
+	<string>Sony Corporation. (Camera)</string>
 	<key>10-51-72</key>
 	<string>HUAWEI TECHNOLOGIES CO.,LTD</string>
 	<key>10-56-11</key>
@@ -26987,7 +26989,7 @@
 	<key>14-2D-F5</key>
 	<string>Amphitech</string>
 	<key>14-2F-FD</key>
-	<string>LT SECURITY INC</string>
+	<string>LT SECURITY INC (Camera)</string>
 	<key>14-30-04</key>
 	<string>HUAWEI TECHNOLOGIES CO.,LTD</string>
 	<key>14-30-7A</key>
@@ -27121,9 +27123,11 @@
 	<key>14-A6-2C</key>
 	<string>S.M. Dezac S.A.</string>
 	<key>14-A7-8B</key>
-	<string>Zhejiang Dahua Technology Co., Ltd.</string>
+	<string>Zhejiang Dahua Technology Co., Ltd. (Camera)</string>
 	<key>14-A8-6B</key>
 	<string>ShenZhen Telacom Science</string>
+	<key>38-AF-29</key>
+	<string>Zhejiang Dahua Technology Co., Ltd. (Camera)</string>
 	<key>14-A9-E3</key>
 	<string>MST CORPORATION</string>
 	<key>14-AB-C5</key>
@@ -27367,7 +27371,7 @@
 	<key>18-68-82</key>
 	<string>Beward R</string>
 	<key>18-68-CB</key>
-	<string>Hangzhou Hikvision Digital Technology Co.,Ltd.</string>
+	<string>Hangzhou Hikvision Digital Technology Co.,Ltd. (Camera)</string>
 	<key>18-6D-99</key>
 	<string>Adanis Inc.</string>
 	<key>18-71-17</key>
@@ -28591,7 +28595,7 @@
 	<key>28-57-67</key>
 	<string>Echostar Technologies Corp</string>
 	<key>28-57-BE</key>
-	<string>Hangzhou Hikvision Digital Technology Co.,Ltd.</string>
+	<string>Hangzhou Hikvision Digital Technology Co.,Ltd. (Camera)</string>
 	<key>28-5A-EB</key>
 	<string>Apple, Inc.</string>
 	<key>28-5F-2F</key>
@@ -29415,7 +29419,7 @@
 	<key>30-F7-D7</key>
 	<string>Thread Technology Co., Ltd</string>
 	<key>30-F9-ED</key>
-	<string>Sony Corporation</string>
+	<string>Sony Corporation. (Camera)</string>
 	<key>30-FA-B7</key>
 	<string>Tunai Creative</string>
 	<key>30-FC-68</key>
@@ -30085,7 +30089,7 @@
 	<key>3C-07-54</key>
 	<string>Apple, Inc.</string>
 	<key>3C-07-71</key>
-	<string>Sony Corporation</string>
+	<string>Sony Corporation. (Camera)</string>
 	<key>3C-08-1E</key>
 	<string>Beijing Yupont Electric Power Technology Co.,Ltd</string>
 	<key>3C-08-F6</key>
@@ -30393,7 +30397,7 @@
 	<key>3C-EA-FB</key>
 	<string>NSE AG</string>
 	<key>3C-EF-8C</key>
-	<string>Zhejiang Dahua Technology Co., Ltd.</string>
+	<string>Zhejiang Dahua Technology Co., Ltd. (Camera)</string>
 	<key>3C-F3-92</key>
 	<string>Virtualtek. Co. Ltd</string>
 	<key>3C-F5-2C</key>
@@ -30765,7 +30769,9 @@
 	<key>44-18-4F</key>
 	<string>Fitview</string>
 	<key>44-19-B6</key>
-	<string>Hangzhou Hikvision Digital Technology Co.,Ltd.</string>
+	<string>Hangzhou Hikvision Digital Technology Co.,Ltd.(Camera)</string>
+	<key>4C-BD-8F</key>
+	<string>Hangzhou Hikvision Digital Technology Co.,Ltd.(Camera)</string>
 	<key>44-1C-A8</key>
 	<string>Hon Hai Precision Ind. Co.,Ltd.</string>
 	<key>44-1E-91</key>
@@ -31295,7 +31301,7 @@
 	<key>48-E9-F1</key>
 	<string>Apple, Inc.</string>
 	<key>48-EA-63</key>
-	<string>Zhejiang Uniview Technologies Co., Ltd.</string>
+	<string>Zhejiang Uniview Technologies Co., Ltd. (Camera)</string>
 	<key>48-EB-30</key>
 	<string>ETERNA TECHNOLOGY, INC.</string>
 	<key>48-ED-80</key>
@@ -31359,7 +31365,7 @@
 	<key>4C-0F-C7</key>
 	<string>Earda Electronics Co.,Ltd </string>
 	<key>4C-11-BF</key>
-	<string>Zhejiang Dahua Technology Co., Ltd.</string>
+	<string>Zhejiang Dahua Technology Co., Ltd. (Camera)</string>
 	<key>4C-14-80</key>
 	<string>NOREGON SYSTEMS, INC</string>
 	<key>4C-14-A3</key>
@@ -32047,7 +32053,7 @@
 	<key>54-40-AD</key>
 	<string>Samsung Electronics Co.,Ltd</string>
 	<key>54-42-49</key>
-	<string>Sony Corporation</string>
+	<string>Sony Corporation. (Camera)</string>
 	<key>54-44-08</key>
 	<string>Nokia Corporation</string>
 	<key>54-46-6B</key>
@@ -32071,7 +32077,7 @@
 	<key>54-51-46</key>
 	<string>AMG Systems Ltd.</string>
 	<key>54-53-ED</key>
-	<string>Sony Corporation</string>
+	<string>Sony Corporation. (Camera)</string>
 	<key>54-54-14</key>
 	<string>Digital RF Corea, Inc</string>
 	<key>54-54-CF</key>
@@ -32183,7 +32189,11 @@
 	<key>54-BE-F7</key>
 	<string>PEGATRON CORPORATION</string>
 	<key>54-C4-15</key>
-	<string>Hangzhou Hikvision Digital Technology Co.,Ltd.</string>
+	<string>Hangzhou Hikvision Digital Technology Co.,Ltd.(Camera)</string>
+	<key>64-DB-8B</key>
+	<string>Hangzhou Hikvision Digital Technology Co.,Ltd.(Camera)</string>
+	<key>94-E1-AC</key>
+	<string>Hangzhou Hikvision Digital Technology Co.,Ltd.(Camera)</string>
 	<key>54-C8-0F</key>
 	<string>TP-LINK TECHNOLOGIES CO.,LTD.</string>
 	<key>54-CD-10</key>
@@ -34939,7 +34949,7 @@
 	<key>78-81-8F</key>
 	<string>Server Racks Australia Pty Ltd</string>
 	<key>78-84-3C</key>
-	<string>Sony Corporation</string>
+	<string>Sony Corporation. (Camera)</string>
 	<key>78-84-EE</key>
 	<string>INDRA ESPACIO S.A.</string>
 	<key>78-88-8A</key>
@@ -36771,7 +36781,9 @@
 	<key>90-02-8A</key>
 	<string>Shenzhen Shidean Legrand Electronic Products Co.,Ltd</string>
 	<key>90-02-A9</key>
-	<string>Zhejiang Dahua Technology Co., Ltd.</string>
+	<string>Zhejiang Dahua Technology Co., Ltd. (Camera)</string>
+	<key>BC-32-5F</key>
+	<string>Zhejiang Dahua Technology Co., Ltd. (Camera)</string>
 	<key>90-03-25</key>
 	<string>HUAWEI TECHNOLOGIES CO.,LTD</string>
 	<key>90-03-B7</key>
@@ -38445,7 +38457,9 @@
 	<key>A4-13-4E</key>
 	<string>Luxul </string>
 	<key>A4-14-37</key>
-	<string>Hangzhou Hikvision Digital Technology Co.,Ltd.</string>
+	<string>Hangzhou Hikvision Digital Technology Co.,Ltd. (Camera)</string>
+	<key>B4-A3-82</key>
+	<string>Hangzhou Hikvision Digital Technology Co.,Ltd. (Camera)</string>
 	<key>A4-15-66</key>
 	<string>Wei Fang Goertek Electronics Co.,Ltd</string>
 	<key>A4-15-88</key>
@@ -39233,7 +39247,7 @@
 	<key>AC-9A-96</key>
 	<string>Lantiq Deutschland GmbH</string>
 	<key>AC-9B-0A</key>
-	<string>Sony Corporation</string>
+	<string>Sony Corporation. (Camera)</string>
 	<key>AC-9B-84</key>
 	<string>Smak Tecnologia e Automacao</string>
 	<key>AC-9C-E4</key>
@@ -39305,7 +39319,7 @@
 	<key>AC-CB-09</key>
 	<string>Hefcom Metering </string>
 	<key>AC-CC-8E</key>
-	<string>Axis Communications AB</string>
+	<string>Axis Communications AB (Camera)</string>
 	<key>AC-CE-8F</key>
 	<string>HWA YAO TECHNOLOGIES CO., LTD</string>
 	<key>AC-CF-23</key>
@@ -40531,7 +40545,7 @@
 	<key>BC-A9-D6</key>
 	<string>Cyber-Rain, Inc.</string>
 	<key>BC-AD-28</key>
-	<string>Hangzhou Hikvision Digital Technology Co.,Ltd.</string>
+	<string>Hangzhou Hikvision Digital Technology Co.,Ltd. (Camera)</string>
 	<key>BC-AD-AB</key>
 	<string>Avaya Inc</string>
 	<key>BC-AE-C5</key>
@@ -40713,7 +40727,7 @@
 	<key>C0-56-27</key>
 	<string>Belkin International Inc.</string>
 	<key>C0-56-E3</key>
-	<string>Hangzhou Hikvision Digital Technology Co.,Ltd.</string>
+	<string>Hangzhou Hikvision Digital Technology Co.,Ltd. (Camera)</string>
 	<key>C0-57-BC</key>
 	<string>Avaya Inc</string>
 	<key>C0-58-A7</key>
@@ -40963,7 +40977,7 @@
 	<key>C4-2C-03</key>
 	<string>Apple, Inc.</string>
 	<key>C4-2F-90</key>
-	<string>Hangzhou Hikvision Digital Technology Co.,Ltd.</string>
+	<string>Hangzhou Hikvision Digital Technology Co.,Ltd.(Camera)</string>
 	<key>C4-30-18</key>
 	<string>MCS Logic Inc.</string>
 	<key>C4-34-6B</key>
@@ -42841,7 +42855,7 @@
 	<key>D8-D3-85</key>
 	<string>Hewlett Packard</string>
 	<key>D8-D4-3C</key>
-	<string>Sony Corporation</string>
+	<string>Sony Corporation. (Camera)</string>
 	<key>D8-D5-B9</key>
 	<string>Rainforest Automation, Inc.</string>
 	<key>D8-D6-7E</key>
@@ -43297,7 +43311,7 @@
 	<key>E0-4F-BD</key>
 	<string>SICHUAN TIANYI COMHEART TELECOMCO.,LTD</string>
 	<key>E0-50-8B</key>
-	<string>Zhejiang Dahua Technology Co., Ltd.</string>
+	<string>Zhejiang Dahua Technology Co., Ltd. (Camera)</string>
 	<key>E0-51-24</key>
 	<string>NXP Semiconductors</string>
 	<key>E0-51-63</key>
@@ -44643,7 +44657,7 @@
 	<key>F0-BD-F1</key>
 	<string>Sipod Inc.</string>
 	<key>F0-BF-97</key>
-	<string>Sony Corporation</string>
+	<string>Sony Corporation. (Camera)</string>
 	<key>F0-C1-F1</key>
 	<string>Apple, Inc.</string>
 	<key>F0-C2-4C</key>
@@ -45693,7 +45707,7 @@
 	<key>FC-F1-36</key>
 	<string>Samsung Electronics Co.,Ltd</string>
 	<key>FC-F1-52</key>
-	<string>Sony Corporation</string>
+	<string>Sony Corporation. (Camera)</string>
 	<key>FC-F1-CD</key>
 	<string>OPTEX-FA CO.,LTD.</string>
 	<key>FC-F5-28</key>
