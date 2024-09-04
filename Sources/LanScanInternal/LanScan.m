@@ -111,7 +111,7 @@
 }
 
 - (void)start {
-    
+
     deb(@"start scan for router: %@", [self getRouterIP]);
 
     //Initializing the dictionary that holds the Brands name for each MAC Address
@@ -123,7 +123,7 @@
     if(![self isEmpty:vendors]){
         [self.brandDictionary addEntriesFromDictionary: vendors];
     }
-    
+
 
     self.localAddress = [self localIPAddress];
     NSArray *a = [self.localAddress componentsSeparatedByString:@"."];
@@ -154,66 +154,86 @@
 }
 
 - (void)probeNetwork{
-    NSString *deviceIPAddress = [[[[NSString stringWithFormat:@"%@%ld", self.baseAddress, (long)self.currentHostAddress] stringByReplacingOccurrencesOfString:@".0" withString:@"."] stringByReplacingOccurrencesOfString:@".00" withString:@"."] stringByReplacingOccurrencesOfString:@".." withString:@".0."];
-    
+    NSString *deviceIPAddress = [[[NSString stringWithFormat:@"%@%ld", self.baseAddress, (long)self.currentHostAddress] stringByReplacingOccurrencesOfString:@".0" withString:@"."] stringByReplacingOccurrencesOfString:@".00" withString:@"."];
+
+    while([deviceIPAddress containsString:@".."]) {
+      deviceIPAddress = [deviceIPAddress stringByReplacingOccurrencesOfString:@".." withString:@".0."];
+    }
+
+    dispatch_group_t apiGroup = dispatch_group_create();
+
+    // We use a dispatch group to ensure any pending manufacturer information is downloaded
+    // before we consider this host complete.
+    dispatch_group_notify(apiGroup, dispatch_get_main_queue(), ^{
+      [self.delegate lanScanHasUpdatedProgress:self.currentHostAddress address: deviceIPAddress];
+
+      if (self.currentHostAddress >= MAX_IP_RANGE) {
+          [self.timer invalidate];
+          [self.delegate lanScanDidFinishScanning];
+      }
+
+      self.currentHostAddress++;
+    });
+
     if(deviceIPAddress != nil) {
         //ping to check if device is active
         PingOperation *pingOperation = [[PingOperation alloc]initWithIPToPing:deviceIPAddress andCompletionHandler:^(NSError  * _Nullable error, NSString  * _Nonnull ip) {
-            
+
             if(error == nil) {
-                
+
                 NSMutableString *deviceHostName = [[self hostnamesForAddress: deviceIPAddress] mutableCopy];
                 if([deviceIPAddress isEqualToString:[self getRouterIP]]){
                     [deviceHostName appendString: @" (router)"];
                 }
-                
+
                 NSString *deviceMac = [self ip2mac: deviceIPAddress];
                 NSString *deviceBrand = [self.brandDictionary objectForKey: [self makeKeyFromMAC: deviceMac]];
-                
+
+              NSMutableDictionary *dict = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
+                                    deviceHostName != nil ? deviceHostName : @"", DEVICE_NAME,
+                                    deviceIPAddress != nil ? deviceIPAddress : @"", DEVICE_IP_ADDRESS,
+                                    deviceMac != nil ? deviceMac : @"", DEVICE_MAC,
+                                    deviceBrand != nil ? deviceBrand : @"", DEVICE_BRAND,
+                                    nil];
+
                 if([self isEmpty:deviceBrand]) {
-                    
+
                     NSURL *url = [NSURL URLWithString:[[NSString alloc] initWithFormat:@"https://api.macvendors.com/%@", deviceMac]];
-                    /// Synchronous URL loading of  `DispatchQueue.main.async`
-                    NSData *data = [NSData dataWithContentsOfURL: url];
+
+                  dispatch_group_enter(apiGroup);
+                  NSURLSessionDataTask *task = [NSURLSession.sharedSession dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+
                     if(![self isEmpty: data]) {
-                        deviceBrand = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+                        NSString *deviceBrand = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
                         if(![self isEmpty:deviceBrand]){
-                            
                             NSMutableDictionary *vendors = [self downloadedVendorsDictionary];
                             NSString *path = [self getDownloadedVendorsDictionaryPath];
                             if(![self isEmpty: path]){
                                 vendors[[self makeKeyFromMAC:deviceMac]] = deviceBrand;
                                 [vendors writeToFile:path atomically:YES];
                             }
+
+                          [dict setObject:deviceBrand forKey:DEVICE_BRAND];
                         }
                     }
+
+                    [self.delegate lanScanDidFindNewDevice: dict];
+                    dispatch_group_leave(apiGroup);
+                  }];
+
+                  [task resume];
+                } else {
+                  [self.delegate lanScanDidFindNewDevice: dict];
                 }
-                
-                NSDictionary *dict = [[NSDictionary alloc] initWithObjectsAndKeys:
-                                      deviceHostName != nil ? deviceHostName : @"", DEVICE_NAME,
-                                      deviceIPAddress != nil ? deviceIPAddress : @"", DEVICE_IP_ADDRESS,
-                                      deviceMac != nil ? deviceMac : @"", DEVICE_MAC,
-                                      deviceBrand != nil ? deviceBrand : @"", DEVICE_BRAND,
-                                      nil];
-                
-                [self.delegate lanScanDidFindNewDevice: dict];
+
             } else {
                 // If debug mode is active
                 deb(@"%@", error);
             }
-            
+
         }];
         [pingOperation start];
     }
-
-    [self.delegate lanScanHasUpdatedProgress:self.currentHostAddress address: deviceIPAddress];
-    
-    if (self.currentHostAddress >= MAX_IP_RANGE) {
-        [self.timer invalidate];
-        [self.delegate lanScanDidFinishScanning];
-    }
-    
-    self.currentHostAddress++;
 }
 
 -(NSString*)makeKeyFromMAC: (NSString*) deviceMac {
@@ -224,9 +244,9 @@
 }
 
 -(NSString*)ip2mac: (NSString*)strIP {
-    
+
     const char *ip = [strIP UTF8String];
-    
+
     int sockfd = 0;
     unsigned char buf[BUFLEN];
     unsigned char buf2[BUFLEN];
@@ -235,7 +255,7 @@
     struct sockaddr_in *sin;
     memset(buf, 0, sizeof(buf));
     memset(buf2, 0, sizeof(buf2));
-    
+
     sockfd = socket(AF_ROUTE, SOCK_RAW, 0);
     rtm = (struct rt_msghdr *) buf;
     rtm->rtm_msglen = sizeof(struct rt_msghdr) + sizeof(struct sockaddr_in);
@@ -245,16 +265,16 @@
     rtm->rtm_flags = RTF_LLINFO;
     rtm->rtm_pid = getpid();
     rtm->rtm_seq = SEQ;
-    
+
     sin = (struct sockaddr_in *) (rtm + 1);
     sin->sin_len = sizeof(struct sockaddr_in);
     sin->sin_family = AF_INET;
     sin->sin_addr.s_addr = inet_addr(ip);
     write(sockfd, rtm, rtm->rtm_msglen);
-    
+
     n = read(sockfd, buf2, BUFLEN);
     close(sockfd);
-    
+
     if (n != 0) {
         int index =  sizeof(struct rt_msghdr) + sizeof(struct sockaddr_inarp) + 8;
         NSString *macAddress =[NSString stringWithFormat:@"%2.2x:%2.2x:%2.2x:%2.2x:%2.2x:%2.2x",buf2[index+0], buf2[index+1], buf2[index+2], buf2[index+3], buf2[index+4], buf2[index+5]];
@@ -269,19 +289,19 @@
 - (NSString *)hostnamesForAddress:(NSString *)address {
     struct addrinfo *result = NULL;
     struct addrinfo hints;
-    
+
     memset(&hints, 0, sizeof(hints));
     hints.ai_flags = AI_NUMERICHOST;
     hints.ai_family = PF_UNSPEC;
     hints.ai_socktype = SOCK_STREAM;
     hints.ai_protocol = 0;
-    
+
     const char *strHost = [address cStringUsingEncoding: NSASCIIStringEncoding];
     int errorStatus = getaddrinfo(strHost, NULL, &hints, &result);
     if (errorStatus != 0) {
         return [self getErrorDescription:errorStatus];
     }
-    
+
     NSString *backupHostName = nil;
     for (struct addrinfo *r = result; r; r = r->ai_next) {
         char hostname[NI_MAXHOST] = {0};
@@ -297,35 +317,35 @@
             break;
         }
     }
-    
+
     CFDataRef addressRef = CFDataCreate(NULL, (UInt8 *)result->ai_addr, result->ai_addrlen);
     if (addressRef == nil) {
         freeaddrinfo(result);
         return backupHostName;
     }
     freeaddrinfo(result);
-    
+
     CFHostRef hostRef = CFHostCreateWithAddress(kCFAllocatorDefault, addressRef);
     if (hostRef == nil) {
         return backupHostName;
     }
     CFRelease(addressRef);
-    
+
     BOOL succeeded = CFHostStartInfoResolution(hostRef, kCFHostNames, NULL);
     if (!succeeded) {
         return backupHostName;
     }
-    
+
     CFArrayRef hostnamesRef = CFHostGetNames(hostRef, NULL);
     NSInteger count = [(__bridge NSArray *)hostnamesRef count];
     if(count == 1) {
         return [(__bridge NSArray *)hostnamesRef objectAtIndex: 0];
     }
-    
+
     NSMutableString *hostnames = [NSMutableString new];
     for (int currentIndex = 0; currentIndex < count; currentIndex++) {
         NSString *name = [(__bridge NSArray *)hostnamesRef objectAtIndex:currentIndex];
-        
+
         if(currentIndex == 0) {
             [hostnames appendString: name];
             [hostnames appendString: @" ("];
@@ -339,7 +359,7 @@
             [hostnames appendString: @")"];
         }
     }
-    
+
     return hostnames;
 }
 
@@ -411,7 +431,7 @@
     struct ifaddrs *temp_addr = NULL;
     NSString *wifiAddress = nil;
     NSString *cellAddress = nil;
-    
+
     // retrieve the current interfaces - returns 0 on success
     if(!getifaddrs(&interfaces)) {
         // Loop through linked list of interfaces
@@ -421,7 +441,7 @@
             if(sa_type == AF_INET || sa_type == AF_INET6) {
                 NSString *name = [NSString stringWithUTF8String:temp_addr->ifa_name];
                 NSString *addr = [NSString stringWithUTF8String:inet_ntoa(((struct sockaddr_in *)temp_addr->ifa_addr)->sin_addr)]; // pdp_ip0
-                
+
                 if([name isEqualToString: DEFAULT_WIFI_INTERFACE]) {
                     // Interface is the wifi connection on the iPhone
                     wifiAddress = addr;
@@ -445,13 +465,13 @@
     struct ifaddrs *interfaces = NULL;
     struct ifaddrs *temp_addr = NULL;
     int success = 0;
-    
+
     // retrieve the current interfaces - returns 0 on success
     success = getifaddrs(&interfaces);
-    
+
     if (success == 0) {
         temp_addr = interfaces;
-        
+
         while(temp_addr != NULL) {
             // check if interface is en0 which is the wifi connection on the iPhone
             if(temp_addr->ifa_addr->sa_family == AF_INET) {
@@ -460,13 +480,13 @@
                     self.netMask = [NSString stringWithUTF8String:inet_ntoa(((struct sockaddr_in *)temp_addr->ifa_netmask)->sin_addr)];
                 }
             }
-            
+
             temp_addr = temp_addr->ifa_next;
         }
     }
-    
+
     freeifaddrs(interfaces);
-    
+
     return address;
 }
 
@@ -506,17 +526,17 @@
                     sa_tab[i] = NULL;
                 }
             }
-            
+
             if( ((rt->rtm_addrs & (RTA_DST|RTA_GATEWAY)) == (RTA_DST|RTA_GATEWAY))
                && sa_tab[RTAX_DST]->sa_family == AF_INET
                && sa_tab[RTAX_GATEWAY]->sa_family == AF_INET) {
-                
+
                 if(((struct sockaddr_in *)sa_tab[RTAX_DST])->sin_addr.s_addr == 0) {
                     char ifName[128];
                     if_indextoname(rt->rtm_index,ifName);
-                    
+
                     if(strcmp([DEFAULT_WIFI_INTERFACE UTF8String], ifName) == 0){
-                        
+
                         *addr = ((struct sockaddr_in *)(sa_tab[RTAX_GATEWAY]))->sin_addr.s_addr;
                         r = 0;
                     }
@@ -534,7 +554,7 @@
     if (r >= 0) {
         return [NSString stringWithUTF8String:inet_ntoa(gatewayaddr)];
     }
-    
+
     return @"";
 }
 
