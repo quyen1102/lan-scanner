@@ -63,7 +63,10 @@
 @implementation LanScan
 
 - (id)initWithDelegate:(id<LANScanDelegate>)delegate {
+#ifdef DEBUG
     deb(@"init scanner");
+#endif
+
     self = [super init];
     if(self) {
         self.delegate = delegate;
@@ -111,9 +114,9 @@
 }
 
 - (void)start {
-
+#ifdef DEBUG
     deb(@"start scan for router: %@", [self getRouterIP]);
-
+#endif
     //Initializing the dictionary that holds the Brands name for each MAC Address
 
     self.brandDictionary = [[NSDictionary dictionaryWithContentsOfFile:[SWIFTPM_MODULE_BUNDLE pathForResource: @"data" ofType: @"plist"]] mutableCopy];
@@ -148,7 +151,9 @@
 }
 
 - (void)stop {
+#ifdef DEBUG
     deb(@"stop scan");
+#endif
     [self.timer invalidate];
     self.timer = nil;
 }
@@ -228,7 +233,10 @@
 
             } else {
                 // If debug mode is active
+#ifdef DEBUG
                 deb(@"%@", error);
+#endif
+               
             }
 
         }];
